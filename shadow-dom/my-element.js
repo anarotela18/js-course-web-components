@@ -1,7 +1,7 @@
 class myElement extends HTMLElement{
     constructor(){
         super();
-        this.attachShadow({ mode: `open`});
+       this.attachShadow({ mode: `open`});
     };
     getTemplate(){
         const template = document.createElement("template");
@@ -14,11 +14,12 @@ class myElement extends HTMLElement{
             </section>
             ${this.getStyles()}
         `;
+        return template;
     };
     getStyles(){
         return `
         <style>
-            h2{
+            .title{
                 color: red;
             }
         </style>
