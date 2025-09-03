@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class Slot</title>
     <style>
-        .title{
-            color: blue;
+        h2{
+            color: green;
         }
     </style>
 </head>
 <body>
     <h2>Slot</h2>
-    <my-element>Soy un texto fuera del componente</my-element>
+    <my-element>
+        <span slot="title">Soy el titulo</span>
+        <span slot="parrafo">Soy el texto del parrafo</span>
+    </my-element>
     <script type="module" src="my-element.js"></script>
 </body>
 </html>
