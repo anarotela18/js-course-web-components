@@ -1,20 +1,15 @@
 class myElement extends HTMLElement(){
     constructor(){
         super();
-        this.attachShadow({mode: `open`});
+        this.attachShadow({mode: "open"});
     };
     getTemplate(){
         const template = document.createElement("template");
         template.innerHTML = `
             <section>
                 <h2>
-                 <slot name="title"></slot>
+                <slot></slot>
                 </h2>
-                <div>
-                    <p>
-                    <slot name="parrafo"></slot>
-                    </p>
-                </div>
             </section>
             ${this.getStyles()}
         `;
@@ -23,8 +18,8 @@ class myElement extends HTMLElement(){
     getStyles(){
         return `
             <style>
-                span{
-                    color: blue;
+                h2{
+                    color: red;
                 }
             </style>
         `;
