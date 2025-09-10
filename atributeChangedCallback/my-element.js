@@ -1,15 +1,25 @@
-class myElement extends HTMLElement{
-    constructor(){
-        super();
-        this.attachShadow({ mode:`open`});
-
-        this.title     = this.getAttribute('title');
-        this.paragraph = this.getAttribute('paragraph');
-        this.imgSrc    = this.getAttribute('img');
+class myElement extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: `open` });
+  }
+  static get observedAttributes() {
+    return ["title", "paragraph", "img"];
+  }
+  attributeChangedCallback(attr, oldVal, newVal){
+    if(attr === "title"){
+        this.title = newVal;
     }
-    getTemplate(){
-        const template = document.createElement('template');
-        template.innerHTML = `
+    if (attr === "paragraph") {
+      this.paragraph = newVal;
+    }
+    if(attr === "img"){
+        this.imgSrc = newVal;
+    }
+  }
+  getTemplate() {
+    const template = document.createElement("template");
+    template.innerHTML = `
             <section>
                 <h2>${this.title}</h2>
                 <div>
@@ -19,22 +29,22 @@ class myElement extends HTMLElement{
             </section>
             ${this.getStyles()}
         `;
-        return template;
-    }
-    getStyles(){
-        return `
+    return template;
+  }
+  getStyles() {
+    return `
             <style>
                 h2{
                     color: red;
                 }
             </style>
         `;
-    }
-    render(){
-        this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true));
-    }
-    connectedCallback(){
-        this.render();
-    }
+  }
+  render() {
+    this.shadowRoot.appendChild(this.getTemplate().content.cloneNode(true));
+  }
+  connectedCallback() {
+    this.render();
+  }
 }   
 customElements.define('my-element',myElement);
