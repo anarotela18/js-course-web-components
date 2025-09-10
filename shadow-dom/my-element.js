@@ -1,13 +1,13 @@
 class myElement extends HTMLElement{
     constructor(){
         super();
-       this.attachShadow({ mode: `open`});
+       this.attachShadow({ mode: "open"});
     };
     getTemplate(){
         const template = document.createElement("template");
         template.innerHTML = `
             <section>
-                <h2 class="title">Hola mundo!</h2>
+                <h2>Hola mundo!</h2>
                 <div>
                     <p>Soy mas texto ejemplo</p>
                 </div>
@@ -19,7 +19,7 @@ class myElement extends HTMLElement{
     getStyles(){
         return `
         <style>
-            .title{
+            h2{
                 color: red;
             }
         </style>

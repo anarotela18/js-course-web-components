@@ -3,9 +3,9 @@ class myElement extends HTMLElement(){
         super();
         this.attachShadow({ mode: `open`});
 
-        this.title = this.getAttribute('title');
+        this.title     = this.getAttribute('title');
         this.paragraph = this.getAttribute('paragraph');
-        this.imgSrc = this.getAttribute('img');
+        this.imgSrc    = this.getAttribute('img');
     };
     getTemplate(){
         const template = document.createElement("template");

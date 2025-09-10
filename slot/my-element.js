@@ -23,8 +23,8 @@ class myElement extends HTMLElement(){
     getStyles(){
         return `
             <style>
-                h2{
-                    color: red;
+                span{
+                    color: blue;
                 }
             </style>
         `;
